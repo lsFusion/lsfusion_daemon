@@ -1,0 +1,36 @@
+[Unit]
+Description=LSFusion
+After=network.target
+
+
+[Service]
+Type=forking
+User=root
+
+OOMScoreAdjust=-100
+
+Environment="PID_FILE=/var/run/lsfusion.pid"
+Environment="JAVA_HOME=/usr/java/jdk1.8.0_131/jre"
+Environment="FUSION_HOME=/usr/gti"
+Environment="FUSION_OPTS=-Xms512m -Xmx1024m -Xss2m"
+Environment="CLASSPATH=lsfusion-server-1.2.4.jar"
+
+ExecStart=/usr/bin/jsvc \
+            -home $JAVA_HOME \
+            -jvm server \
+            -cwd $FUSION_HOME \
+            -pidfile $PID_FILE \
+            -outfile ${FUSION_HOME}/logs/stdout.log \
+            -errfile ${FUSION_HOME}/logs/stderr.log \
+            $FUSION_OPTS \
+            -cp ${FUSION_HOME}/${CLASSPATH} \
+            lsfusion.server.logics.BusinessLogicsBootstrap
+
+ExecStop=/usr/bin/jsvc \
+            -home $JAVA_HOME \
+            -stop \
+            -pidfile $PID_FILE \
+            lsfusion.server.logics.BusinessLogicsBootstrap
+
+[Install]
+WantedBy=multi-user.target
