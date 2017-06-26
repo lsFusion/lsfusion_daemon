@@ -2,15 +2,15 @@
 # chkconfig: 2345 99 50
 # description: lsFusion management script
 #
-# Adapt the following lines to your configuration
+# Adapt the following lines to your configuration:
 
 LSFUSION_HOME=/usr/bin/lsfusion
-JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
+JAVA_HOME=/usr/java/jdk1.8.0_131/jre
 PID_FILE=$LSFUSION_HOME/jsvc-lsfusion.pid
 
 LSFUSION_OPTS="-Xms512m -Xmx1048m -Xss2m"
 
-CLASSPATH=.:lsfusion-server-1.2.4-SNAPSHOT.jar
+CLASSPATH=.:lsfusion-server-1.2.4.jar
 
 cd $LSFUSION_HOME
 
