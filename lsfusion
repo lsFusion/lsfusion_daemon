@@ -8,7 +8,7 @@ LSFUSION_HOME=/usr/bin/lsfusion
 JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
 PID_FILE=$LSFUSION_HOME/jsvc-lsfusion.pid
 
-LSFUSION_OPTS="-Xms512m -Xmx1048m"
+LSFUSION_OPTS="-Xms512m -Xmx1048m -Xss2m"
 
 CLASSPATH=.:lsfusion-server-1.2.4-SNAPSHOT.jar
 
