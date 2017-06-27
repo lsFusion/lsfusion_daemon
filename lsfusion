@@ -5,7 +5,7 @@
 # Adapt the following lines to your configuration:
 
 LSFUSION_HOME=/usr/bin/lsfusion
-JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
 PID_FILE=$LSFUSION_HOME/jsvc-lsfusion.pid
 
 LSFUSION_OPTS="-Xms512m -Xmx1048m -Xss2m"
